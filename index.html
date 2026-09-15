@@ -1,43 +1,501 @@
 <!DOCTYPE html>
 <html lang="uk">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AniView — Головна</title>
+
+    <link rel="stylesheet" href="css/Main.css">
+
+    <title>Zenit — Main</title>
+
 </head>
+
+
 <body>
-    
-<h1>Сайт для пергляду аніме</h1>
-<section>
-    <nav class="menu">
-        <a href="login.html">Вхід</a>
 
-        <a href="profile.html">Профіль</a>
 
-        <a href="anime.html">Каталог</a>
+    <!-- ==================== HEADER ==================== -->
 
-        <a href="forma.html">Анкета</a>
-    </nav>
-</section>
+    <header class="header">
 
-<section>
-<p>Ласкаво просимо!<br>
-Дякуємо за реєстрацію. Тепер тобі доступні всі основні можливості сайту для зручного перегляду аніме<br>
-Знаходь потрібні тайтли за жанром, роком виходу, рейтингом, типом та іншими параметрами.<br>
-У спеціальному розділі відображатимуться останні додані аніме та нові серії.<br>
-Виконуй різні завдання та отримуй досягнення за активність на сайті.<br>
-Також твоя історія перегляду зберігатиметься автоматично, щоб ти міг легко продовжити перегляд із того місця, де зупинився.<br>
-Приємного перегляду!
-</p>
-</section>
+        <div class="logo">
 
-<section>
-    <p>History</p>
-</section>
+            <img src="img/logo.png" alt="Logo">
 
-<section>
-    <p>Recomend</p>
-</section>
+            <span>Zenit</span>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ==================== MAIN LAYOUT ==================== -->
+
+    <div class="layout">
+
+
+        <!-- ==================== SIDEBAR ==================== -->
+
+        <nav class="sidebar">
+
+
+            <!-- Main -->
+
+            <a href="index.html" class="sidebar-button">
+
+                <img src="img/icons/Main.svg" alt="">
+
+                <span>Main</span>
+
+            </a>
+
+
+
+            <!-- Catalogue -->
+
+            <a href="catalogue.html" class="sidebar-button">
+
+                <img src="img/icons/catalogue.svg" alt="">
+
+                <span>Catalogue</span>
+
+            </a>
+
+
+
+            <!-- News -->
+
+            <a href="news.html" class="sidebar-button">
+
+                <img src="img/icons/news.svg" alt="">
+
+                <span>News</span>
+
+            </a>
+
+
+
+            <!-- Reviewed -->
+
+            <a href="watched.html" class="sidebar-button">
+
+                <img src="img/icons/star.svg" alt="">
+
+                <span>Reviewed</span>
+
+            </a>
+
+
+
+           <!-- New series -->
+<div class="new-series">
+
+    <h3>New series</h3>
+
+    <div class="series-list">
+
+        <a href="#" class="series-item">
+            <img src="img/series/frieren.jpg" alt="Frieren">
+
+            <div class="series-info">
+                <span class="series-title">Frieren</span>
+                <span class="series-episode">Episode 24</span>
+            </div>
+        </a>
+
+        <a href="#" class="series-item">
+            <img src="img/series/one-piece.jpg" alt="One Piece">
+
+            <div class="series-info">
+                <span class="series-title">One Piece</span>
+                <span class="series-episode">Episode 1138</span>
+            </div>
+        </a>
+
+        <a href="#" class="series-item">
+            <img src="img/series/demon-slayer.jpg" alt="Demon Slayer">
+
+            <div class="series-info">
+                <span class="series-title">Demon Slayer</span>
+                <span class="series-episode">Episode 12</span>
+            </div>
+        </a>
+
+        <a href="#" class="series-item">
+            <img src="img/series/solo-leveling.jpg" alt="Solo Leveling">
+
+            <div class="series-info">
+                <span class="series-title">Solo Leveling</span>
+                <span class="series-episode">Episode 13</span>
+            </div>
+        </a>
+
+    </div>
+
+</div>
+
+
+
+            <!-- Login button -->
+
+            <button
+                class="sidebar-button login-button"
+                onclick="openLogin()"
+            >
+                Log in
+            </button>
+
+
+        </nav>
+
+
+
+        <!-- ==================== MAIN CONTENT ==================== -->
+
+       <main class="content">
+
+    <section class="hero">
+
+        <img
+            class="hero-bg"
+            src="img/dandadan.svg"
+            alt="Dandadan"
+        >
+
+        <div class="hero-info">
+
+            <span class="badge">
+                Shonen
+            </span>
+
+            <h1>DANDADAN</h1>
+
+            <p>
+                Dandadan - anime about two kids<br>
+                place were magic and akian go leg to leg
+            </p>
+
+            <button class="watch-btn">
+                Watch
+                <span>▶</span>
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <section class="section">
+
+        <h2>Our recommendations</h2>
+
+        <div class="cards">
+
+            <article class="anime-card">
+                <img src="img/solo-leveling.jpg" alt="Solo Leveling">
+                
+                <span>Solo Leveling</span>
+            </article>
+
+            <article class="anime-card">
+                <img src="img/my-hero-academia.jpg" alt="My Hero Academia">
+             
+                <span>My Hero Academia</span>
+            </article>
+
+            <article class="anime-card">
+                <img src="img/jujutsu-kaisen.jpg" alt="Jujutsu Kaisen">
+            
+                <span>Jujutsu Kaisen</span>
+            </article>
+
+            <article class="anime-card">
+                <img src="img/kimono.jpg" alt="Kimono">
+              
+                <span>Kimono</span>
+            </article>
+
+            <article class="anime-card">
+                <img src="img/blue-lock.jpg" alt="Blue Lock">
+             
+                <span>Blue Lock</span>
+            </article>
+
+            <article class="anime-card">
+                <img src="img/one-piece.jpg" alt="One Piece">
+           
+                <span>One Piece</span>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <section class="section categories-section">
+
+        <h2>Best Categories</h2>
+
+        <div class="categories">
+
+            <article class="category-card">
+                <img src="img/combat.jpg" alt="Combat">
+                <span>Combat</span>
+            </article>
+
+            <article class="category-card">
+                <img src="img/action.jpg" alt="Action">
+                <span>Action</span>
+            </article>
+
+            <article class="category-card">
+                <img src="img/romance.jpg" alt="Romance">
+                <span>Romance</span>
+            </article>
+
+            <article class="category-card">
+                <img src="img/isekai.jpg" alt="Isekai">
+                <span>Isekai</span>
+            </article>
+
+            <article class="category-card">
+                <img src="img/horreur.jpg" alt="Horreur">
+                <span>Horreur</span>
+            </article>
+
+            <article class="category-card">
+                <img src="img/science-fiction.jpg" alt="Science Fiction">
+                <span>Science Fiction</span>
+            </article>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+
+
+
+    <!-- ==================== LOGIN WINDOW ==================== -->
+
+    <div id="loginModal" class="login-modal">
+
+
+        <div class="login-window">
+
+
+            <!-- Close -->
+
+            <button
+                class="close-login"
+                onclick="closeLogin()"
+            >
+                ×
+            </button>
+
+
+
+            <h2>Log in</h2>
+
+
+            <p class="login-subtitle">
+                Welcome back
+            </p>
+
+
+
+            <!-- Login form -->
+
+            <form>
+
+
+                <!-- Email / Login -->
+
+                <label for="login">
+                    Email or Login
+                </label>
+
+                <input
+                    type="text"
+                    id="login"
+                    placeholder="Enter your email or login"
+                >
+
+
+
+                <!-- Password -->
+
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter your password"
+                >
+
+
+
+                <!-- Login button -->
+
+                <button
+                    type="submit"
+                    class="login-submit"
+                >
+                    Log in
+                </button>
+
+
+
+                <!-- Go to registration -->
+
+                <p class="register-text">
+
+                    Don't have an account?
+
+                    <a
+                        href="#"
+                        onclick="openRegister(); return false;"
+                    >
+                        Sign up
+                    </a>
+
+                </p>
+
+
+            </form>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ==================== REGISTER WINDOW ==================== -->
+
+    <div id="registerModal" class="login-modal">
+
+
+        <div class="login-window">
+
+
+            <!-- Close -->
+
+            <button
+                class="close-login"
+                onclick="closeRegister()"
+            >
+                ×
+            </button>
+
+
+
+            <h2>Sign up</h2>
+
+
+            <p class="login-subtitle">
+                Create your account
+            </p>
+
+
+
+            <!-- Registration form -->
+
+            <form>
+
+
+                <!-- Email / Login -->
+
+                <label for="registerLogin">
+                    Email or Login
+                </label>
+
+                <input
+                    type="text"
+                    id="registerLogin"
+                    placeholder="Enter your email or login"
+                >
+
+
+
+                <!-- Password -->
+
+                <label for="registerPassword">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="registerPassword"
+                    placeholder="Create a password"
+                >
+
+
+
+                <!-- Confirm password -->
+
+                <label for="confirmPassword">
+                    Confirm Password
+                </label>
+
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Confirm your password"
+                >
+
+
+
+                <!-- Registration button -->
+
+                <button
+                    type="submit"
+                    class="login-submit"
+                >
+                    Sign up
+                </button>
+
+
+
+                <!-- Go to login -->
+
+                <p class="register-text">
+
+                    Already have an account?
+
+                    <a
+                        href="#"
+                        onclick="openLogin(); return false;"
+                    >
+                        Log in
+                    </a>
+
+                </p>
+
+
+            </form>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+
+    <script src="js/script.js"></script>
+
 
 </body>
+
 </html>

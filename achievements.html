@@ -1,11 +1,407 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <link rel="stylesheet" href="css/Main.css">
+
+    <title>Zenit — Main</title>
+
 </head>
+
+
 <body>
-    
+
+
+    <!-- ==================== HEADER ==================== -->
+
+    <header class="header">
+
+        <div class="logo">
+
+            <img src="img/logo.png" alt="Logo">
+
+            <span>Zenit</span>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ==================== MAIN LAYOUT ==================== -->
+
+    <div class="layout">
+
+
+        <!-- ==================== SIDEBAR ==================== -->
+
+        <nav class="sidebar">
+
+
+            <!-- Main -->
+
+            <a href="index.html" class="sidebar-button">
+
+                <img src="img/icons/Main.svg" alt="">
+
+                <span>Main</span>
+
+            </a>
+
+
+
+            <!-- Catalogue -->
+
+            <a href="catalogue.html" class="sidebar-button">
+
+                <img src="img/icons/catalogue.svg" alt="">
+
+                <span>Catalogue</span>
+
+            </a>
+
+
+
+            <!-- News -->
+
+            <a href="news.html" class="sidebar-button">
+
+                <img src="img/icons/news.svg" alt="">
+
+                <span>News</span>
+
+            </a>
+
+
+
+            <!-- Reviewed -->
+
+            <a href="watched.html" class="sidebar-button">
+
+                <img src="img/icons/star.svg" alt="">
+
+                <span>Reviewed</span>
+
+            </a>
+
+
+
+           <!-- New series -->
+<div class="new-series">
+
+    <h3>New series</h3>
+
+    <div class="series-list">
+
+        <a href="#" class="series-item">
+            <img src="img/series/frieren.jpg" alt="Frieren">
+
+            <div class="series-info">
+                <span class="series-title">Frieren</span>
+                <span class="series-episode">Episode 24</span>
+            </div>
+        </a>
+
+        <a href="#" class="series-item">
+            <img src="img/series/one-piece.jpg" alt="One Piece">
+
+            <div class="series-info">
+                <span class="series-title">One Piece</span>
+                <span class="series-episode">Episode 1138</span>
+            </div>
+        </a>
+
+        <a href="#" class="series-item">
+            <img src="img/series/demon-slayer.jpg" alt="Demon Slayer">
+
+            <div class="series-info">
+                <span class="series-title">Demon Slayer</span>
+                <span class="series-episode">Episode 12</span>
+            </div>
+        </a>
+
+        <a href="#" class="series-item">
+            <img src="img/series/solo-leveling.jpg" alt="Solo Leveling">
+
+            <div class="series-info">
+                <span class="series-title">Solo Leveling</span>
+                <span class="series-episode">Episode 13</span>
+            </div>
+        </a>
+
+    </div>
+
+</div>
+
+
+
+            <!-- Login button -->
+
+            <button
+                class="sidebar-button login-button"
+                onclick="openLogin()"
+            >
+                Log in
+            </button>
+
+
+        </nav>
+
+
+
+        <!-- ==================== MAIN CONTENT ==================== -->
+
+        <main class="content">
+
+
+            <h1>Головна</h1>
+
+
+            <!-- Top Categories -->
+
+            <section class="top">
+
+                <p>Top Categories</p>
+
+            </section>
+
+
+
+            <!-- Recommendations -->
+
+            <section class="recomend">
+
+                <p>Recommend</p>
+
+            </section>
+
+
+        </main>
+
+
+    </div>
+
+
+
+    <!-- ==================== LOGIN WINDOW ==================== -->
+
+    <div id="loginModal" class="login-modal">
+
+
+        <div class="login-window">
+
+
+            <!-- Close -->
+
+            <button
+                class="close-login"
+                onclick="closeLogin()"
+            >
+                ×
+            </button>
+
+
+
+            <h2>Log in</h2>
+
+
+            <p class="login-subtitle">
+                Welcome back
+            </p>
+
+
+
+            <!-- Login form -->
+
+            <form>
+
+
+                <!-- Email / Login -->
+
+                <label for="login">
+                    Email or Login
+                </label>
+
+                <input
+                    type="text"
+                    id="login"
+                    placeholder="Enter your email or login"
+                >
+
+
+
+                <!-- Password -->
+
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter your password"
+                >
+
+
+
+                <!-- Login button -->
+
+                <button
+                    type="submit"
+                    class="login-submit"
+                >
+                    Log in
+                </button>
+
+
+
+                <!-- Go to registration -->
+
+                <p class="register-text">
+
+                    Don't have an account?
+
+                    <a
+                        href="#"
+                        onclick="openRegister(); return false;"
+                    >
+                        Sign up
+                    </a>
+
+                </p>
+
+
+            </form>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ==================== REGISTER WINDOW ==================== -->
+
+    <div id="registerModal" class="login-modal">
+
+
+        <div class="login-window">
+
+
+            <!-- Close -->
+
+            <button
+                class="close-login"
+                onclick="closeRegister()"
+            >
+                ×
+            </button>
+
+
+
+            <h2>Sign up</h2>
+
+
+            <p class="login-subtitle">
+                Create your account
+            </p>
+
+
+
+            <!-- Registration form -->
+
+            <form>
+
+
+                <!-- Email / Login -->
+
+                <label for="registerLogin">
+                    Email or Login
+                </label>
+
+                <input
+                    type="text"
+                    id="registerLogin"
+                    placeholder="Enter your email or login"
+                >
+
+
+
+                <!-- Password -->
+
+                <label for="registerPassword">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="registerPassword"
+                    placeholder="Create a password"
+                >
+
+
+
+                <!-- Confirm password -->
+
+                <label for="confirmPassword">
+                    Confirm Password
+                </label>
+
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Confirm your password"
+                >
+
+
+
+                <!-- Registration button -->
+
+                <button
+                    type="submit"
+                    class="login-submit"
+                >
+                    Sign up
+                </button>
+
+
+
+                <!-- Go to login -->
+
+                <p class="register-text">
+
+                    Already have an account?
+
+                    <a
+                        href="#"
+                        onclick="openLogin(); return false;"
+                    >
+                        Log in
+                    </a>
+
+                </p>
+
+
+            </form>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+
+    <script src="js/script.js"></script>
+
+
 </body>
+
 </html>
