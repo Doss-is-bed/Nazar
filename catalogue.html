@@ -152,6 +152,108 @@
         </nav>
 
 
+<!-- Панель пошуку -->
+<div class="catalogue-toolbar">
+    <div class="search-box">
+        <input
+            type="search"
+            id="animeSearch"
+            placeholder="Пошук аніме..."
+            autocomplete="off"
+        >
+        <button id="searchButton" aria-label="Шукати">⌕</button>
+    </div>
+
+    <button id="openFilters" class="filter-button">
+        ☷ Категорії
+        <span id="filterCount">0</span>
+    </button>
+</div>
+
+<!-- Вікно фільтрів -->
+<div class="filter-overlay" id="filterOverlay">
+    <section class="filter-modal">
+        <header class="filter-header">
+            <h2>Фільтри</h2>
+            <button id="closeFilters" class="close-filter">×</button>
+        </header>
+
+        <div class="filter-content">
+
+            <!-- Жанр -->
+            <details open>
+                <summary>Жанр</summary>
+                <div class="filter-options" id="genreOptions">
+                    <label><input type="checkbox" value="Action"> Екшн</label>
+                    <label><input type="checkbox" value="Adventure"> Пригоди</label>
+                    <label><input type="checkbox" value="Fantasy"> Фентезі</label>
+                    <label><input type="checkbox" value="Romance"> Романтика</label>
+                    <label><input type="checkbox" value="Comedy"> Комедія</label>
+                    <label><input type="checkbox" value="Drama"> Драма</label>
+                    <label><input type="checkbox" value="Horror"> Жахи</label>
+                    <label><input type="checkbox" value="Sci-Fi"> Наукова фантастика</label>
+                    <label><input type="checkbox" value="Isekai"> Ісекай</label>
+                    <label><input type="checkbox" value="Mystery"> Детектив</label>
+                </div>
+            </details>
+
+            <!-- Рік випуску -->
+            <details>
+                <summary>Рік випуску</summary>
+                <div class="filter-options" id="yearOptions">
+                    <label><input type="checkbox" value="2026"> 2026</label>
+                    <label><input type="checkbox" value="2025"> 2025</label>
+                    <label><input type="checkbox" value="2024"> 2024</label>
+                    <label><input type="checkbox" value="2023"> 2023</label>
+                    <label><input type="checkbox" value="2022"> 2022</label>
+                    <label><input type="checkbox" value="2021"> 2021</label>
+                    <label><input type="checkbox" value="2020"> 2020</label>
+                    <label><input type="checkbox" value="2019"> 2019</label>
+                    <label><input type="checkbox" value="2018"> 2018</label>
+                </div>
+            </details>
+
+            <!-- Тип -->
+            <details>
+                <summary>Тип</summary>
+                <div class="filter-options" id="typeOptions">
+                    <label><input type="checkbox" value="TV"> Серіал</label>
+                    <label><input type="checkbox" value="Movie"> Фільм</label>
+                    <label><input type="checkbox" value="OVA"> OVA</label>
+                    <label><input type="checkbox" value="ONA"> ONA</label>
+                    <label><input type="checkbox" value="Special"> Спецвипуск</label>
+                </div>
+            </details>
+
+            <!-- Сортування -->
+            <details open>
+                <summary>Сортування</summary>
+                <select id="animeSort">
+                    <option value="default">За замовчуванням</option>
+                    <option value="title-asc">Назва: А–Я</option>
+                    <option value="title-desc">Назва: Я–А</option>
+                    <option value="year-desc">Спочатку нові</option>
+                    <option value="year-asc">Спочатку старі</option>
+                    <option value="rating-desc">За рейтингом</option>
+                    <option value="popularity-desc">За популярністю</option>
+                </select>
+            </details>
+
+        </div>
+
+        <footer class="filter-footer">
+            <button id="resetFilters" class="reset-button">
+                Скинути
+            </button>
+            <button id="applyFilters" class="apply-button">
+                Показати тайтли
+            </button>
+        </footer>
+    </section>
+</div>
+
+<p id="resultsMessage" class="results-message" aria-live="polite"></p>
+
 
         <!-- ==================== MAIN CONTENT ==================== -->
 

@@ -107,6 +107,275 @@ body {
 }
 
 
+/* Панель пошуку */
+.catalogue-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 24px 0;
+    flex-wrap: wrap;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 220px;
+    max-width: 600px;
+    background: #252529;
+    border: 1px solid #3b3b42;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+}
+
+.search-box:focus-within {
+    border-color: #9b5cff;
+}
+
+.search-box input {
+    flex: 1;
+    min-width: 0;
+    padding: 13px 16px;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #fff;
+    font-size: 14px;
+}
+
+.search-box input::placeholder {
+    color: #92929b;
+}
+
+.search-box button {
+    padding: 8px 16px;
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.filter-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 18px;
+    border: 1px solid #51465f;
+    border-radius: 12px;
+    background: #29242f;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.filter-button:hover {
+    background: #3a2b4c;
+    border-color: #9b5cff;
+}
+
+#filterCount {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    min-width: 21px;
+    height: 21px;
+    padding: 0 5px;
+    border-radius: 50px;
+    background: #9452f5;
+    font-size: 12px;
+}
+
+/* Затемнення позаду вікна */
+.filter-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(5px);
+}
+
+.filter-overlay.active {
+    display: flex;
+}
+
+/* Саме вікно */
+.filter-modal {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 520px;
+    max-height: min(720px, 90vh);
+    background: #202024;
+    border: 1px solid #393940;
+    border-radius: 18px;
+    color: #f4f4f6;
+    box-shadow: 0 20px 70px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.filter-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid #38383f;
+}
+
+.filter-header h2 {
+    margin: 0;
+    font-size: 21px;
+}
+
+.close-filter {
+    border: none;
+    background: transparent;
+    color: #aaa;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.close-filter:hover {
+    color: white;
+}
+
+.filter-content {
+    padding: 8px 24px;
+    overflow-y: auto;
+}
+
+.filter-content details {
+    padding: 16px 0;
+    border-bottom: 1px solid #38383f;
+}
+
+.filter-content summary {
+    cursor: pointer;
+    font-weight: 600;
+    list-style: none;
+}
+
+.filter-content summary::after {
+    content: "+";
+    float: right;
+    color: #b18aff;
+    font-size: 20px;
+}
+
+.filter-content details[open] summary::after {
+    content: "−";
+}
+
+.filter-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px;
+    margin-top: 18px;
+}
+
+.filter-options label {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #c8c8ce;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.filter-options label:hover {
+    color: white;
+}
+
+.filter-options input {
+    width: 16px;
+    height: 16px;
+    accent-color: #9955f5;
+    cursor: pointer;
+}
+
+#animeSort {
+    width: 100%;
+    margin-top: 16px;
+    padding: 12px;
+    border: 1px solid #414149;
+    border-radius: 9px;
+    background: #2b2b31;
+    color: white;
+    outline: none;
+}
+
+/* Нижні кнопки */
+.filter-footer {
+    display: flex;
+    gap: 12px;
+    padding: 18px 24px;
+    border-top: 1px solid #38383f;
+}
+
+.filter-footer button {
+    flex: 1;
+    padding: 13px;
+    border-radius: 9px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.reset-button {
+    border: 1px solid #484850;
+    background: #2a2a30;
+    color: #ddd;
+}
+
+.reset-button:hover {
+    background: #38383f;
+}
+
+.apply-button {
+    border: none;
+    background: #914cf0;
+    color: white;
+}
+
+.apply-button:hover {
+    background: #a568ff;
+}
+
+.results-message {
+    margin: 12px 0;
+    color: #aaa;
+    font-size: 14px;
+}
+
+@media (max-width: 500px) {
+    .filter-overlay {
+        padding: 10px;
+    }
+
+    .filter-modal {
+        max-height: 94vh;
+    }
+
+    .filter-header,
+    .filter-content {
+        padding-right: 18px;
+        padding-left: 18px;
+    }
+
+    .filter-footer {
+        padding: 14px;
+    }
+
+    .filter-footer button {
+        padding: 11px 8px;
+        font-size: 13px;
+    }
+}
+
 /* ==================== MAIN CONTENT ==================== */
 
 .content {
@@ -128,7 +397,7 @@ body {
     position: relative;
 
     width: 100%;
-    height: 320px;
+    height: 540px;
 
     overflow: hidden;
 }
@@ -148,21 +417,20 @@ body {
     display: block;
 }
 
-
 /* Затемнення поверх картинки */
 
 .hero::after {
     content: "";
-
     position: absolute;
-
     inset: 0;
 
     background: linear-gradient(
-        90deg,
-        rgba(20, 20, 25, 0.95) 0%,
-        rgba(20, 20, 25, 0.65) 35%,
-        rgba(20, 20, 25, 0.15) 75%
+        0deg,
+        #17171b 0%,
+         rgba(23, 23, 27, 0.95) 15%,
+        rgba(23, 23, 27, 0.75) 35%,
+        rgba(23, 23, 27, 0.4) 80%,
+        rgba(23, 23, 27, 0) 100%
     );
 
     z-index: 1;
@@ -170,13 +438,12 @@ body {
 
 
 /* ==================== HERO INFO ==================== */
-
 .hero-info {
     position: relative;
 
     z-index: 2;
 
-    padding: 45px 0 0 22px;
+    padding: 50px 0 0 30px;
 }
 
 .badge {
@@ -186,19 +453,19 @@ body {
 
     border: 1px solid #a93858;
 
-    padding: 4px 10px;
+    padding: 6px 12px;
 
-    border-radius: 12px;
+    border-radius: 14px;
 
-    font-size: 8px;
+    font-size: 11px;
 
     color: white;
 }
 
 .hero h1 {
-    margin: 12px 0 3px;
+    margin: 14px 0 6px;
 
-    font-size: 30px;
+    font-size: 36px;
 
     font-weight: 800;
 
@@ -210,9 +477,9 @@ body {
 
     color: #ccc;
 
-    font-size: 8px;
+    font-size: 11px;
 
-    line-height: 1.4;
+    line-height: 1.5;
 }
 
 
@@ -225,20 +492,20 @@ body {
 
     margin-top: 25px;
 
-    width: 75px;
-    height: 24px;
+    width: 110px;
+    height: 34px;
 
-    padding: 0 8px;
+    padding: 0 12px;
 
     border: none;
 
-    border-radius: 15px;
+    border-radius: 17px;
 
     background: #55555a;
 
     color: white;
 
-    font-size: 8px;
+    font-size: 12px;
 
     cursor: pointer;
 
@@ -376,6 +643,9 @@ body {
 /* ==================== RECOMMENDATIONS ==================== */
 
 .section {
+    position: relative;
+    z-index: 3;
+    margin-top: -270px;
     padding: 20px;
 }
 
@@ -408,8 +678,8 @@ body {
 .anime-card img {
     display: block;
 
-    width: 82px;
-    height: 116px;
+    width: 150px;
+    height: 212px;
 
     object-fit: cover;
 
@@ -438,31 +708,45 @@ body {
     text-overflow: ellipsis;
 }
 
-/* ==================== CATEGORIES ==================== */
+/* ==================== All News ==================== */
 
-.categories-section {
-    padding-top: 0;
+.all-news {
+    position: relative;
+    z-index: 3;
+    padding: 20px;
 }
 
-.categories {
+.section h2 {
+    margin: 0 0 12px;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 500;
+}
+
+.news-cards {
     display: flex;
 
-    gap: 12px;
+    gap: 10px;
 
     overflow-x: auto;
 }
 
-.category-card {
+.some-news-card {
+    position: relative;
+
     flex: 0 0 82px;
 
     cursor: pointer;
 }
 
-.category-card img {
+.some-news-card img {
     display: block;
 
-    width: 82px;
-    height: 82px;
+    width: 150px;
+    height: 212px;
 
     object-fit: cover;
 
@@ -471,21 +755,57 @@ body {
     transition: transform 0.2s;
 }
 
-.category-card:hover img {
-    transform: translateY(-3px);
+.some-news-card:hover img {
+    transform: translateY(-4px);
 }
 
-.category-card span {
+.some-news-card span {
     display: block;
 
-    margin-top: 6px;
+    margin-top: 5px;
 
-    color: #bdbdc2;
+    color: #bcbcc1;
 
     font-size: 7px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+/* ==================== Menu News ==================== */
+.class-news {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+
+    width: 280px;
+    margin-left: auto;
+    margin-right: 0;
 }
 
+.class-news button {
+    width: 100%;
+    box-sizing: border-box;
 
+    padding: 12px 16px;
+    background: #18181b;
+    border: 1px solid #29292d;
+    border-radius: 8px;
+
+    color: #fff;
+    font-size: 16px;
+    text-align: left;
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.class-news button:hover {
+    background: #222226;
+    border-color: #e52b38;
+}
 /* ==================== LOGIN MODAL ==================== */
 
 .login-modal {
@@ -634,5 +954,166 @@ body {
     .cards::-webkit-scrollbar,
     .categories::-webkit-scrollbar {
         display: none;
+    }
+}
+
+/* Основний вміст сторінки каталогу */
+.layout {
+    display: flex;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.content {
+    flex: 1;
+    min-width: 0;
+    min-height: 100vh;
+    padding: 24px;
+    background: #17171b;
+    color: white;
+}
+
+/* Компактна панель пошуку */
+.catalogue-toolbar {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+
+    width: 100%;
+    max-width: 650px;
+    height: 48px;
+
+    margin: 0 0 24px;
+    padding: 0;
+
+    border: 1px solid #414149;
+    border-radius: 12px;
+    background: #252529;
+
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* Поле пошуку */
+.search-box {
+    display: flex;
+    align-items: center;
+
+    flex: 1 1 auto;
+    width: 0;
+    min-width: 0;
+    height: 100%;
+    max-width: none;
+
+    margin: 0;
+    padding: 0;
+
+    border: none;
+    border-radius: 0;
+    background: transparent;
+}
+
+.search-box:focus-within {
+    box-shadow: inset 0 0 0 1px #9b5cff;
+}
+
+.search-box input {
+    flex: 1;
+    width: 0;
+    min-width: 0;
+    height: 100%;
+
+    padding: 0 16px;
+
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+    font-size: 14px;
+}
+
+.search-box button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 44px;
+    height: 100%;
+    padding: 0;
+
+    border: none;
+    background: transparent;
+    color: #c8c8ce;
+    font-size: 23px;
+    cursor: pointer;
+}
+
+/* Категорії — частина тієї самої панелі */
+.filter-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    flex: 0 0 auto;
+    height: 100%;
+    padding: 0 16px;
+
+    border: none;
+    border-left: 1px solid #414149;
+    border-radius: 0;
+
+    background: #2b2b31;
+    color: white;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.filter-button:hover {
+    background: #3a2b4c;
+}
+
+/* Картки каталогу */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 16px;
+    overflow-x: visible;
+}
+
+/* Не розтягуй картки на всю ширину */
+.cards .anime-card {
+    flex: 0 0 150px;
+    width: 150px;
+}
+
+/* Збереження розміру панелі на мобільних */
+@media (max-width: 500px) {
+    .content {
+        padding: 16px;
+    }
+
+    .catalogue-toolbar {
+        height: 46px;
+    }
+
+    .search-box input {
+        padding: 0 10px;
+        font-size: 13px;
+    }
+
+    .search-box button {
+        flex-basis: 36px;
+    }
+
+    .filter-button {
+        padding: 0 10px;
+        font-size: 13px;
+    }
+
+    .cards .anime-card {
+        flex-basis: 120px;
+        width: 120px;
     }
 }
