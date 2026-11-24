@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Zenit — Reviewed</title>
+</head>
+
+<body data-page="list" data-nav="list">
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="header">
+        <a class="logo" href="index.html">
+            <img src="img/logo.png" alt="Logo">
+            <span>Zenit</span>
+        </a>
+    </header>
+
+    <!-- ==================== MAIN LAYOUT ==================== -->
+    <div class="layout">
+
+        <!-- ==================== SIDEBAR ==================== -->
+        <nav class="sidebar">
+            <p class="sidebar-label">Меню</p>
+            <a href="index.html" class="sidebar-button" data-nav="home">
+                <img src="img/icons/main.svg" alt="">
+                <span>Main</span>
+            </a>
+            <a href="catalogue.html" class="sidebar-button" data-nav="catalogue">
+                <img src="img/icons/catalogue.svg" alt="">
+                <span>Catalogue</span>
+            </a>
+            <a href="news.html" class="sidebar-button" data-nav="news">
+                <img src="img/icons/news.svg" alt="">
+                <span>News</span>
+            </a>
+            <a href="watched.html" class="sidebar-button" data-nav="list">
+                <img src="img/icons/star.svg" alt="">
+                <span>Reviewed</span>
+            </a>
+
+            <div class="new-series">
+                <h3>New series</h3>
+                <div class="series-list">
+                <a href="anime.html?id=frieren" class="series-item">
+                    <img src="img/series/frieren.jpg" alt="Frieren">
+                    <div class="series-info"><span class="series-title">Frieren</span><span class="series-episode">Episode 24</span></div>
+                </a>
+                <a href="anime.html?id=one-piece" class="series-item">
+                    <img src="img/series/one-piece.jpg" alt="One Piece">
+                    <div class="series-info"><span class="series-title">One Piece</span><span class="series-episode">Episode 1138</span></div>
+                </a>
+                <a href="anime.html?id=demon-slayer" class="series-item">
+                    <img src="img/series/demon-slayer.jpg" alt="Demon Slayer">
+                    <div class="series-info"><span class="series-title">Demon Slayer</span><span class="series-episode">Episode 12</span></div>
+                </a>
+                <a href="anime.html?id=solo-leveling" class="series-item">
+                    <img src="img/series/solo-leveling.jpg" alt="Solo Leveling">
+                    <div class="series-info"><span class="series-title">Solo Leveling</span><span class="series-episode">Episode 13</span></div>
+                </a>
+                </div>
+            </div>
+
+            <!-- Блок акаунта: кнопка Log in або посилання на профіль (заповнює script.js) -->
+            <div class="account-block" id="accountSlot"></div>
+        </nav>
+
+        <!-- ==================== MAIN CONTENT ==================== -->
+        <main class="content">
+            <h1>Reviewed</h1>
+            <p class="page-subtitle">Ваші оцінки та списки: переглянуте, улюблене, відкладене</p>
+            <div class="tabs" id="listTabs"></div>
+            <div id="listOut"></div>
+        </main>
+    </div>
+
+    <!-- ==================== LOGIN WINDOW ==================== -->
+    <div id="loginModal" class="login-modal">
+        <div class="login-window">
+            <button class="close-login" type="button" onclick="closeLogin()">×</button>
+            <h2>Log in</h2>
+            <p class="login-subtitle">Welcome back</p>
+            <form id="loginForm" novalidate>
+                <label for="login">Email or Login</label>
+                <input type="text" id="login" placeholder="Enter your email or login" autocomplete="username">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" autocomplete="current-password">
+                <p class="form-error" role="alert"></p>
+                <button type="submit" class="login-submit">Log in</button>
+                <p class="register-text">Don't have an account?
+                    <a href="#" onclick="openRegister(); return false;">Sign up</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== REGISTER WINDOW ==================== -->
+    <div id="registerModal" class="login-modal">
+        <div class="login-window">
+            <button class="close-login" type="button" onclick="closeRegister()">×</button>
+            <h2>Sign up</h2>
+            <p class="login-subtitle">Create your account</p>
+            <form id="registerForm" novalidate>
+                <label for="registerLogin">Email or Login</label>
+                <input type="text" id="registerLogin" placeholder="Enter your email or login" autocomplete="username">
+                <label for="registerPassword">Password</label>
+                <input type="password" id="registerPassword" placeholder="Create a password" autocomplete="new-password">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" placeholder="Confirm your password" autocomplete="new-password">
+                <p class="form-error" role="alert"></p>
+                <button type="submit" class="login-submit">Sign up</button>
+                <p class="register-text">Already have an account?
+                    <a href="#" onclick="openLogin(); return false;">Log in</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

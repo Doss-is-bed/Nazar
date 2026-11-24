@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Zenit — Catalogue</title>
+</head>
+
+<body data-page="catalogue" data-nav="catalogue">
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="header">
+        <a class="logo" href="index.html">
+            <img src="img/logo.png" alt="Logo">
+            <span>Zenit</span>
+        </a>
+    </header>
+
+    <!-- ==================== MAIN LAYOUT ==================== -->
+    <div class="layout">
+
+        <!-- ==================== SIDEBAR ==================== -->
+        <nav class="sidebar">
+            <p class="sidebar-label">Меню</p>
+            <a href="index.html" class="sidebar-button" data-nav="home">
+                <img src="img/icons/main.svg" alt="">
+                <span>Main</span>
+            </a>
+            <a href="catalogue.html" class="sidebar-button" data-nav="catalogue">
+                <img src="img/icons/catalogue.svg" alt="">
+                <span>Catalogue</span>
+            </a>
+            <a href="news.html" class="sidebar-button" data-nav="news">
+                <img src="img/icons/news.svg" alt="">
+                <span>News</span>
+            </a>
+            <a href="watched.html" class="sidebar-button" data-nav="list">
+                <img src="img/icons/star.svg" alt="">
+                <span>Reviewed</span>
+            </a>
+
+            <div class="new-series">
+                <h3>New series</h3>
+                <div class="series-list">
+                <a href="anime.html?id=frieren" class="series-item">
+                    <img src="img/series/frieren.jpg" alt="Frieren">
+                    <div class="series-info"><span class="series-title">Frieren</span><span class="series-episode">Episode 24</span></div>
+                </a>
+                <a href="anime.html?id=one-piece" class="series-item">
+                    <img src="img/series/one-piece.jpg" alt="One Piece">
+                    <div class="series-info"><span class="series-title">One Piece</span><span class="series-episode">Episode 1138</span></div>
+                </a>
+                <a href="anime.html?id=demon-slayer" class="series-item">
+                    <img src="img/series/demon-slayer.jpg" alt="Demon Slayer">
+                    <div class="series-info"><span class="series-title">Demon Slayer</span><span class="series-episode">Episode 12</span></div>
+                </a>
+                <a href="anime.html?id=solo-leveling" class="series-item">
+                    <img src="img/series/solo-leveling.jpg" alt="Solo Leveling">
+                    <div class="series-info"><span class="series-title">Solo Leveling</span><span class="series-episode">Episode 13</span></div>
+                </a>
+                </div>
+            </div>
+
+            <!-- Блок акаунта: кнопка Log in або посилання на профіль (заповнює script.js) -->
+            <div class="account-block" id="accountSlot"></div>
+        </nav>
+
+        <!-- ==================== MAIN CONTENT ==================== -->
+        <main class="content">
+            <h1>Каталог</h1>
+            <p class="page-subtitle">Шукайте тайтли за назвою, жанром, роком і типом</p>
+
+            <!-- Панель пошуку -->
+            <div class="catalogue-toolbar">
+                <div class="search-box">
+                    <input type="search" id="animeSearch" placeholder="Пошук аніме..." autocomplete="off">
+                    <button id="searchButton" type="button" aria-label="Шукати">⌕</button>
+                </div>
+                <button id="openFilters" class="filter-button" type="button">
+                    ☷ Категорії <span id="filterCount">0</span>
+                </button>
+            </div>
+
+            <div class="chips" id="genreChips"></div>
+            <p id="resultsMessage" class="results-message" aria-live="polite"></p>
+
+            <section class="section" id="popularSection">
+                <h2>Популярне за вибором</h2>
+                <div class="cards" id="popularRow"></div>
+            </section>
+
+            <section class="section">
+                <h2>Усі тайтли</h2>
+                <div class="anime-grid" id="animeGrid"></div>
+            </section>
+
+            <!-- Вікно фільтрів -->
+            <div class="filter-overlay" id="filterOverlay">
+                <section class="filter-modal">
+                    <header class="filter-header">
+                        <h2>Фільтри</h2>
+                        <button id="closeFilters" class="close-filter" type="button">×</button>
+                    </header>
+                    <div class="filter-content">
+                        <details open>
+                            <summary>Жанр</summary>
+                            <div class="filter-options" id="genreOptions">
+                                <label><input type="checkbox" value="Action"> Екшн</label>
+                                <label><input type="checkbox" value="Adventure"> Пригоди</label>
+                                <label><input type="checkbox" value="Fantasy"> Фентезі</label>
+                                <label><input type="checkbox" value="Romance"> Романтика</label>
+                                <label><input type="checkbox" value="Comedy"> Комедія</label>
+                                <label><input type="checkbox" value="Drama"> Драма</label>
+                                <label><input type="checkbox" value="Horror"> Жахи</label>
+                                <label><input type="checkbox" value="Sci-Fi"> Наукова фантастика</label>
+                                <label><input type="checkbox" value="Isekai"> Ісекай</label>
+                                <label><input type="checkbox" value="Mystery"> Детектив</label>
+                                <label><input type="checkbox" value="Sports"> Спорт</label>
+                            </div>
+                        </details>
+                        <details>
+                            <summary>Рік випуску</summary>
+                            <div class="filter-options" id="yearOptions">
+                                <label><input type="checkbox" value="2026"> 2026</label>
+                                <label><input type="checkbox" value="2025"> 2025</label>
+                                <label><input type="checkbox" value="2024"> 2024</label>
+                                <label><input type="checkbox" value="2023"> 2023</label>
+                                <label><input type="checkbox" value="2022"> 2022</label>
+                                <label><input type="checkbox" value="2020"> 2020</label>
+                                <label><input type="checkbox" value="2019"> 2019</label>
+                                <label><input type="checkbox" value="2016"> 2016</label>
+                                <label><input type="checkbox" value="2006"> 2006</label>
+                                <label><input type="checkbox" value="1999"> 1999</label>
+                            </div>
+                        </details>
+                        <details>
+                            <summary>Тип</summary>
+                            <div class="filter-options" id="typeOptions">
+                                <label><input type="checkbox" value="TV"> Серіал</label>
+                                <label><input type="checkbox" value="Movie"> Фільм</label>
+                                <label><input type="checkbox" value="OVA"> OVA</label>
+                                <label><input type="checkbox" value="ONA"> ONA</label>
+                                <label><input type="checkbox" value="Special"> Спецвипуск</label>
+                            </div>
+                        </details>
+                        <details open>
+                            <summary>Сортування</summary>
+                            <select id="animeSort">
+                                <option value="default">За замовчуванням</option>
+                                <option value="title-asc">Назва: А–Я</option>
+                                <option value="title-desc">Назва: Я–А</option>
+                                <option value="year-desc">Спочатку нові</option>
+                                <option value="year-asc">Спочатку старі</option>
+                                <option value="rating-desc">За рейтингом</option>
+                                <option value="popularity-desc">За популярністю</option>
+                            </select>
+                        </details>
+                    </div>
+                    <footer class="filter-footer">
+                        <button id="resetFilters" class="reset-button" type="button">Скинути</button>
+                        <button id="applyFilters" class="apply-button" type="button">Показати тайтли</button>
+                    </footer>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- ==================== LOGIN WINDOW ==================== -->
+    <div id="loginModal" class="login-modal">
+        <div class="login-window">
+            <button class="close-login" type="button" onclick="closeLogin()">×</button>
+            <h2>Log in</h2>
+            <p class="login-subtitle">Welcome back</p>
+            <form id="loginForm" novalidate>
+                <label for="login">Email or Login</label>
+                <input type="text" id="login" placeholder="Enter your email or login" autocomplete="username">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" autocomplete="current-password">
+                <p class="form-error" role="alert"></p>
+                <button type="submit" class="login-submit">Log in</button>
+                <p class="register-text">Don't have an account?
+                    <a href="#" onclick="openRegister(); return false;">Sign up</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== REGISTER WINDOW ==================== -->
+    <div id="registerModal" class="login-modal">
+        <div class="login-window">
+            <button class="close-login" type="button" onclick="closeRegister()">×</button>
+            <h2>Sign up</h2>
+            <p class="login-subtitle">Create your account</p>
+            <form id="registerForm" novalidate>
+                <label for="registerLogin">Email or Login</label>
+                <input type="text" id="registerLogin" placeholder="Enter your email or login" autocomplete="username">
+                <label for="registerPassword">Password</label>
+                <input type="password" id="registerPassword" placeholder="Create a password" autocomplete="new-password">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" placeholder="Confirm your password" autocomplete="new-password">
+                <p class="form-error" role="alert"></p>
+                <button type="submit" class="login-submit">Sign up</button>
+                <p class="register-text">Already have an account?
+                    <a href="#" onclick="openLogin(); return false;">Log in</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
